@@ -8,7 +8,7 @@
 body {
   background: linear-gradient(135deg, #4facfe, #00f2fe);
   min-height: 100vh;
-  padding: 20px;
+  padding: 15px;
   display: flex;
   justify-content: center;
 }
@@ -29,6 +29,7 @@ body {
   border-radius: 12px;
   margin-bottom: 15px;
   border: 1px solid rgba(255,255,255,0.3);
+  gap: 10px;
 }
 
 .brand {
@@ -104,6 +105,8 @@ body {
 .current {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .temp {
@@ -129,7 +132,7 @@ body {
   display: flex;
   overflow-x: auto;
   gap: 15px;
-  padding-bottom: 10px;
+  padding: 5px 5px 15px 5px;
 }
 
 .hour {
@@ -175,21 +178,64 @@ body {
   background: #eee;
 }
 
-/* Responsive */
+/* ---------------------------- */
+/*        MOBILE FIXES          */
+/* ---------------------------- */
+
 @media (max-width: 768px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  #q {
+    width: 100%;
+  }
+
   .container {
     flex-direction: column;
   }
 
-  #q {
-    width: 140px;
-  }
-
-  .icon {
-    font-size: 45px;
+  .left, .right {
+    width: 100%;
   }
 
   .temp {
-    font-size: 38px;
+    font-size: 40px;
+  }
+
+  .icon {
+    font-size: 50px;
+  }
+
+  .current {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .current-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hourly {
+    gap: 12px;
+    padding-bottom: 20px;
+  }
+
+  .day {
+    font-size: 14px;
   }
 }
