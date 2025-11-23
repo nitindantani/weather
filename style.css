@@ -18,7 +18,9 @@ body {
   max-width: 1100px;
 }
 
-/* Top bar */
+/* ------------------------------ */
+/*            TOP BAR             */
+/* ------------------------------ */
 .topbar {
   display: flex;
   flex-wrap: wrap;
@@ -30,6 +32,8 @@ body {
   margin-bottom: 15px;
   border: 1px solid rgba(255,255,255,0.3);
   gap: 10px;
+  position: relative;
+  z-index: 30;
 }
 
 .brand {
@@ -44,8 +48,10 @@ body {
   flex-wrap: wrap;
 }
 
+/* Search wrapper — keeps suggestions above all */
 .search-wrap {
   position: relative;
+  z-index: 50;
 }
 
 #q {
@@ -80,7 +86,9 @@ body {
   gap: 5px;
 }
 
-/* Main layout */
+/* ------------------------------ */
+/*          MAIN LAYOUT           */
+/* ------------------------------ */
 .container {
   display: flex;
   gap: 20px;
@@ -92,6 +100,8 @@ body {
   border-radius: 15px;
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255,255,255,0.4);
+  position: relative;
+  z-index: 1;
 }
 
 .left {
@@ -127,7 +137,9 @@ body {
   font-size: 60px;
 }
 
-/* Hourly forecast */
+/* ------------------------------ */
+/*         HOURLY FORECAST        */
+/* ------------------------------ */
 .hourly {
   display: flex;
   overflow-x: auto;
@@ -143,7 +155,9 @@ body {
   border-radius: 10px;
 }
 
-/* Daily */
+/* ------------------------------ */
+/*         DAILY FORECAST         */
+/* ------------------------------ */
 .days {
   display: flex;
   flex-direction: column;
@@ -158,15 +172,22 @@ body {
   border-radius: 8px;
 }
 
-/* Suggestions */
+/* ------------------------------ */
+/*        SEARCH DROPDOWN         */
+/* ------------------------------ */
 .suggestions {
   position: absolute;
+  top: 100%;
+  left: 0;
   background: #fff;
   width: 100%;
   border-radius: 8px;
   margin-top: 4px;
   border: 1px solid #ccc;
-  z-index: 5;
+  z-index: 9999;
+  max-height: 220px;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .suggestions div {
@@ -178,10 +199,9 @@ body {
   background: #eee;
 }
 
-/* ---------------------------- */
-/*        MOBILE FIXES          */
-/* ---------------------------- */
-
+/* ------------------------------ */
+/*          MOBILE FIXES          */
+/* ------------------------------ */
 @media (max-width: 768px) {
 
   body {
