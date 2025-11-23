@@ -1,167 +1,261 @@
-/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  background: linear-gradient(90deg, #00e1ff, #4d9fff);
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
   min-height: 100vh;
-  padding: 20px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
 }
 
-/* PAGE */
 .page {
-  max-width: 1300px;
-  margin: auto;
+  width: 100%;
+  max-width: 1100px;
 }
 
-/* TOPBAR */
+/* ------------------------------ */
+/*            TOP BAR             */
+/* ------------------------------ */
 .topbar {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 20px;
-  background: rgba(255, 255, 255, 0.25);
-  padding: 14px 20px;
-  border-radius: 16px;
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(15px);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255,255,255,0.3);
+  gap: 10px;
+  position: relative;
+  z-index: 30;
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: 700;
+  margin-right: auto;
 }
 
 .controls {
   display: flex;
-  gap: 12px;
-  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-/* SEARCH WRAPPER */
+/* Search wrapper — keeps suggestions above all */
 .search-wrap {
   position: relative;
+  z-index: 50;
 }
 
-/* SEARCH INPUT */
 #q {
-  padding: 10px 14px;
-  width: 250px;
-  border-radius: 10px;
-  border: 1px solid #fff;
-  outline: none;
-  font-size: 15px;
-}
-
-/* SUGGESTION BOX - FIXED HERE */
-.suggestions {
-  position: absolute;
-  top: 40px;
-  left: 0;
-  width: 100%;
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-
-  /* ⭐ Make sure suggestions stay ON TOP */
-  z-index: 9999 !important;
-}
-
-.suggestions div {
-  padding: 10px 12px;
-  cursor: pointer;
-  border-bottom: 1px solid #eee;
-}
-.suggestions div:hover {
-  background: #f2f2f2;
-}
-
-/* BUTTONS */
-.btn {
-  padding: 10px 16px;
-  border-radius: 10px;
+  padding: 10px 15px;
+  width: 200px;
+  border-radius: 8px;
   border: none;
+  outline: none;
+}
+
+.btn {
+  padding: 10px 15px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
+  border: none;
+  font-weight: 600;
 }
 
-.btn.primary {
+.primary {
   background: #007bff;
-  color: white;
+  color: #fff;
 }
 
-.btn.ghost {
-  background: rgba(255,255,255,0.5);
+.ghost {
+  background: rgba(255,255,255,0.4);
+  border: 1px solid #fff;
 }
 
-/* UNIT TOGGLE */
 .unit {
-  font-size: 16px;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 
-/* CARDS */
-.card {
-  background: rgba(255, 255, 255, 0.28);
-  border-radius: 18px;
-  padding: 20px;
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-}
-
-/* LAYOUT */
+/* ------------------------------ */
+/*          MAIN LAYOUT           */
+/* ------------------------------ */
 .container {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
+  display: flex;
   gap: 20px;
 }
 
-/* CURRENT WEATHER */
-.temp-row {
+.card {
+  background: rgba(255,255,255,0.2);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.4);
+  position: relative;
+  z-index: 1;
+}
+
+.left {
+  flex: 2;
+}
+
+.right {
+  flex: 1;
+}
+
+.current {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
 .temp {
   font-size: 48px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
-.desc-block .desc {
-  font-size: 20px;
-  font-weight: 500;
+.desc {
+  font-size: 16px;
+  margin-bottom: 4px;
 }
 
-/* HOURLY */
+.small {
+  opacity: 0.8;
+}
+
+.icon {
+  font-size: 60px;
+}
+
+/* ------------------------------ */
+/*         HOURLY FORECAST        */
+/* ------------------------------ */
 .hourly {
   display: flex;
   overflow-x: auto;
-  gap: 14px;
-  padding-bottom: 10px;
+  gap: 15px;
+  padding: 5px 5px 15px 5px;
 }
 
 .hour {
-  min-width: 90px;
-  background: rgba(255,255,255,0.38);
-  border-radius: 12px;
-  padding: 10px;
   text-align: center;
+  min-width: 70px;
+  background: rgba(255,255,255,0.3);
+  padding: 10px;
+  border-radius: 10px;
 }
 
-/* DAILY */
-.days .day {
+/* ------------------------------ */
+/*         DAILY FORECAST         */
+/* ------------------------------ */
+.days {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.day {
   display: flex;
   justify-content: space-between;
-  padding: 10px 5px;
-  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 8px;
 }
 
-/* FOOT */
-.foot {
-  margin-top: 20px;
-  text-align: center;
-  opacity: 0.7;
+/* ------------------------------ */
+/*        SEARCH DROPDOWN         */
+/* ------------------------------ */
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  z-index: 9999;
+  max-height: 220px;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.suggestions div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.suggestions div:hover {
+  background: #eee;
+}
+
+/* ------------------------------ */
+/*          MOBILE FIXES          */
+/* ------------------------------ */
+@media (max-width: 768px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  #q {
+    width: 100%;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .left, .right {
+    width: 100%;
+  }
+
+  .temp {
+    font-size: 40px;
+  }
+
+  .icon {
+    font-size: 50px;
+  }
+
+  .current {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .current-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hourly {
+    gap: 12px;
+    padding-bottom: 20px;
+  }
+
+  .day {
+    font-size: 14px;
+  }
 }
