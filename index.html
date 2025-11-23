@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Free Weather — Open-Meteo (Glass UI)</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">Free Weather</div>
+      <div class="controls">
+        <div class="search-wrap">
+          <input id="q" type="search" placeholder="Search city (e.g. London)" autocomplete="off" />
+          <div id="suggest" class="suggestions" hidden></div>
+        </div>
+        <button id="searchBtn" class="btn primary">Search</button>
+        <button id="locBtn" class="btn ghost">Use my location</button>
+        <label class="unit">
+          <input id="unitToggle" type="checkbox" />
+          <span>°F</span>
+        </label>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card left">
+        <div class="current">
+          <div class="current-left">
+            <div id="place" class="place">—</div>
+            <div class="temp-row">
+              <div id="temp" class="temp">—°</div>
+              <div class="desc-block">
+                <div id="desc" class="desc">—</div>
+                <div id="meta" class="meta">Humidity — · Wind —</div>
+              </div>
+            </div>
+            <div id="updated" class="small">Last: —</div>
+          </div>
+          <div class="current-right">
+            <div id="icon" class="icon">🌤️</div>
+            <div id="time" class="small">—</div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div>
+          <h4>Hourly (24)</h4>
+          <div id="hourly" class="hourly"></div>
+        </div>
+
+        <hr>
+
+        <div>
+          <h4>7-Day Forecast</h4>
+          <div id="days" class="days"></div>
+        </div>
+      </section>
+
+      <aside class="card right">
+        <div id="extras" class="small">Sunrise — · Sunset —</div>
+        <div class="spacer"></div>
+        <div class="small">Data source: Open-Meteo (free, no key)</div>
+        <div class="spacer"></div>
+        <div class="small">Tip: click a suggestion or press Enter after typing a city</div>
+      </aside>
+    </main>
+
+    <footer class="foot small">Built with Open-Meteo • Ready for GitHub Pages</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
